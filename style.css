@@ -1,0 +1,54 @@
+/* defining default section colors */
+:root{
+    --home-color:#FFFFFF;
+    --about-me-color:#35A7FF;
+    --why-code-color:#F9DC5C;
+    --fc-color:#FF5964;
+    --footer-color:rgba(0,0,0,0.9);
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+
+div,a,ul,ol,li,header,footer,aside,section,nav,p,h1,h2,h3,h4,h5,h6{
+    margin:0;
+    padding:0;
+}
+
+
+#hamburgerIcon{
+    display: none;
+}
+
+
+section{
+    min-height: 100vh;
+    width: 100%;
+}
+
+#home{
+    background-color: var(--home-color);
+}
+
+#about{
+    background-color: var(--about-me-color);
+}
+
+#code{
+    background-color: var(--why-code-color);
+}
+
+#founders{
+    background-color: var(--fc-color);
+
+}
+
+
+#contacts{
+    height: 30vh;
+    width: 100%;
+    background-color: var(--footer-color);
+}
