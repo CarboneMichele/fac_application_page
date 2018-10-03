@@ -1,10 +1,10 @@
 /* defining default section colors */
 :root{
-    --home-color:#FFFFFF;
+    --home-color:white;
     --about-me-color:#35A7FF;
     --why-code-color:#F9DC5C;
-    --fc-color:#FF5964;
-    --footer-color:rgba(0,0,0,0.9);
+    --fac-color:#FF5964;
+
 }
 
 
@@ -12,6 +12,22 @@
     box-sizing: border-box;
 }
 
+html{
+    overflow: auto;
+    height: 100%;
+   
+}
+
+body{
+    overflow: auto;
+    height: 100%;
+    font-family: 'Sunflower', sans-serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+
+}
 
 div,a,ul,ol,li,header,footer,aside,section,nav,p,h1,h2,h3,h4,h5,h6{
     margin:0;
@@ -19,36 +35,250 @@ div,a,ul,ol,li,header,footer,aside,section,nav,p,h1,h2,h3,h4,h5,h6{
 }
 
 
-#hamburgerIcon{
+.modal-overlay{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    background-color: rgba(0,0,0,0.5);
+    
+}
+
+.modal-box{
+    width:500px;
+    height: 300px;
+    border-radius: 3px;
+    background-color: aliceblue;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    line-height: 300px;
+}
+
+.modal-off{
     display: none;
 }
 
+.modal-on{
+    display: block
+}
 
 section{
-    min-height: 100vh;
+    /* min-height: 100%; */
     width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    padding:5%;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
 }
 
-#home{
+section *{
+    pointer-events: none;
+}
+
+.box{
+    
+    width: 0px;
+    height: 0px;
+    transition: all 1s ease-in-out;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: aquamarine;
+    z-index: 2;
+
+}
+
+.invisible{
+    display:none;
+}
+
+
+.about-me{
     background-color: var(--home-color);
-}
+    
+   
 
-#about{
+   }
+
+.why-coding{
     background-color: var(--about-me-color);
+    
+
 }
 
-#code{
+.why-founders{
     background-color: var(--why-code-color);
-}
 
-#founders{
-    background-color: var(--fc-color);
+
 
 }
 
+.contacts{
+    background-color: var(--fac-color);
+}
+    
+.intro{
+    height: 100vh;
+    background-color: azure;
+    
+}
 
-#contacts{
-    height: 30vh;
+
+.icon-wrapper{
+   text-align: center;
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    
+}
+
+.icon-wrapper .icon{
+    /* display: flex;
+    flex-direction: row; */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 auto;
+    /* width: 100%;
+    height: 200px; */
+    margin-bottom: 20px;
+
+}
+
+.about-icon{
+    background-image: url()
+}
+
+.section-title{
+    /* margin-top:20px; */
     width: 100%;
-    background-color: var(--footer-color);
 }
+
+.content{
+    margin-top:20px;
+}
+
+.tall{
+    min-height: 100vh;
+}
+
+@media screen and (min-width:500px) and (min-height:550px){
+
+    section{
+        min-height: 50%;
+        width:50%;
+        height: 50%;
+        margin:0;
+        padding:0;
+        
+    }
+  
+    .intro{
+        display: none;
+        background-color: azure;
+    }
+
+    .about-me{
+        background-color: var(--home-color);
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: 1;
+    
+       }
+    
+    .why-coding{
+        background-color: var(--about-me-color);
+        position: absolute;
+        top:0;
+        right:0;
+        z-index: 1;
+    
+    
+    }
+    
+    .why-founders{
+        background-color: var(--why-code-color);
+        position: absolute;
+        bottom:0;
+        left:0;
+        z-index: 1;
+    
+    
+    }
+    
+    .contacts{
+        background-color: var(--fac-color);
+        position: absolute;
+        bottom:0;
+        right:0;
+        z-index: 1;
+    
+    
+    }
+
+    .expanded{
+        position: fixed;
+        z-index: 3;
+        width:100%;
+        height: 100%;
+        padding: 20px 50px;
+        
+    }
+
+   
+
+    .icon-wrapper{
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+        padding: 0 20px 0 20px;
+    }
+
+    .wrapper-expanded{
+        height:auto;
+    }
+
+    .expanded-section{
+      
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+
+    .content{
+        
+        padding:20px 50px;
+
+    }
+
+    .visible-content{
+        display: block;
+       
+
+    }
+
+    .invisible{
+        display:none;
+    }
+
+   
+}
+
