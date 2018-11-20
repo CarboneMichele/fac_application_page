@@ -1,15 +1,16 @@
 /* defining default section colors */
 :root{
     --home-color:white;
-    --about-me-color:#35A7FF;
-    --why-code-color:#F9DC5C;
-    --fac-color:#FF5964;
+    --about-me-color:#FF7E6B;
+    --why-code-color:#14DFCC;
+    --fac-color:#08415C;
 
 }
 
 
 *{
     box-sizing: border-box;
+    color:rgba(0,0,0,0.7);
 }
 
 html{
@@ -34,37 +35,84 @@ div,a,ul,ol,li,header,footer,aside,section,nav,p,h1,h2,h3,h4,h5,h6{
     padding:0;
 }
 
-
+p{
+    letter-spacing: 1.1;
+    
+}
 .modal-overlay{
+    display: none;
     width:100%;
     height: 100%;
     position: absolute;
     top:0px;
     left:0px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.3);
     
 }
 
 .modal-box{
     width:500px;
-    height: 300px;
+    min-height: 20%;
     border-radius: 3px;
     background-color: aliceblue;
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
     text-align: center;
-    line-height: 300px;
+    position: relative;
+    top:-800px;
+    transition: top 0.3s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+    padding:20px;
+}
+
+.modal-text{
+    margin-bottom: 20px;
+}
+.slide-in{
+    top:20%;
+}
+
+.closing-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background-color:lightgray;
+    line-height: 50px;
+    cursor: pointer;
+    position:absolute;
+    top:-15px;
+    right:-15px;
+  
+    
+}
+
+
+.closing-icon :hover{
+    background-color: lightcoral;
+    border-radius: 50%;
+}
+
+.closing-icon p{
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+}
+.modal-on{
+    display: block;
+    z-index: 10;
+    /* top: 20%; */
 }
 
 .modal-off{
     display: none;
 }
 
-.modal-on{
-    display: block
-}
-
 section{
-    /* min-height: 100%; */
+
     width: 100%;
     overflow: auto;
     display: flex;
@@ -75,23 +123,23 @@ section{
     padding:5%;
     z-index: 1;
     transition: all 0.2s ease-in-out;
-}
-
-section *{
-    pointer-events: none;
-}
-
-.box{
     
-    width: 0px;
-    height: 0px;
-    transition: all 1s ease-in-out;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    background-color: aquamarine;
-    z-index: 2;
+    
+}
+
+section .content{
+    pointer-events: none;
+    
+}
+
+
+
+section p{
+    margin-top:5%;
+    text-align: justify;
+    font-size: 20px;
+    word-spacing: 3px;
+    
 
 }
 
@@ -102,27 +150,31 @@ section *{
 
 .about-me{
     background-color: var(--home-color);
-    
+    cursor: pointer;
    
 
    }
 
 .why-coding{
     background-color: var(--about-me-color);
-    
+    cursor: pointer;
 
 }
 
 .why-founders{
     background-color: var(--why-code-color);
-
+    cursor: pointer;
 
 
 }
 
 .contacts{
     background-color: var(--fac-color);
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
 }
+
     
 .intro{
     height: 100vh;
@@ -136,149 +188,312 @@ section *{
     display: flex;
     flex-direction: row; 
     flex-wrap: wrap;
+    pointer-events: none;
+
     
 }
 
 .icon-wrapper .icon{
-    /* display: flex;
-    flex-direction: row; */
-    width: 200px;
-    height: 200px;
+    
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    background-color: lightgray;
+    background-color: rgba(0,0,0,0.08);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    margin: 0 auto;
-    /* width: 100%;
-    height: 200px; */
+    margin: 30px auto;
     margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+
+   
+    
 
 }
 
 .about-icon{
-    background-image: url()
+    background-image: url(assets/img/michele-foto-3.png);
+    /* background-image: url(assets/img/WhatsApp\ Image\ 2018-11-19\ at\ 12.18.57.jpeg); */
+
+    background-position: center;
+    background-size: cover;
+    background-position: top;    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+
+
+    
 }
 
+
+.coding-icon{
+    background-image: url(assets/img/computer.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-position: top;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+
+}
+
+.fac-icon{
+    background-image: url(assets/icons/fac-logo.png);
+    background-position: center;
+    background-size: contain;
+    background-position: center;
+    background-color: none;
+ 
+    
+}
+
+
+
 .section-title{
-    /* margin-top:20px; */
+    
     width: 100%;
 }
 
 .content{
     margin-top:20px;
+    padding:20px;
+    
 }
+
+.gif{
+    width:80%;
+    height: 250px;
+    margin:20px auto;
+    background-image: url(assets/img/hmym.gif);
+    background-position: center;
+    background-size: cover;
+    border-radius:4px;
+
+
+    
+}
+
+
 
 .tall{
     min-height: 100vh;
 }
 
-@media screen and (min-width:500px) and (min-height:550px){
+.italic{
+    font-style: italic;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.center{
+    text-align: center;
+}
+ul li{
+    margin-left:30px;
+}
+ul li{
+    margin-left:30px;
+}
+ul li{
+    margin-left:30px;
+}
+
+ul li{
+    margin-left:30px;
+}
+
+
+.link-btn{
+    width:100px;
+    height: 100px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    border:1px solid lightgray;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+.fcc-btn{
+    background-image: url(assets/icons/fcc-icon.png);
+   
+
+ }
+
+ .github-btn{
+    background-image: url(assets/icons/github-icon.png);
+    background-color:white;
+   
+
+ }
+
+ .codewars-btn{
+    background-image: url(assets/icons/codewars-icon.jpg);
+
+
+ }
+
+ .tooltiptext{
+    visibility: hidden;
+}
+
+@media screen and (min-width:950px) and (min-height:610px){
 
     section{
-        min-height: 50%;
-        width:50%;
+        position: absolute;
+        width: 50%;
         height: 50%;
-        margin:0;
-        padding:0;
-        
+        overflow: auto;
+        z-index: 1;
+        display: block;
+        transition: all 0.2s ease;
     }
-  
-    .intro{
-        display: none;
-        background-color: azure;
+
+    section::-webkit-scrollbar { 
+        display: none; 
     }
 
     .about-me{
-        background-color: var(--home-color);
-        position: absolute;
-        top:0;
-        left:0;
-        z-index: 1;
-    
-       }
-    
-    .why-coding{
-        background-color: var(--about-me-color);
-        position: absolute;
-        top:0;
-        right:0;
-        z-index: 1;
-    
-    
-    }
-    
-    .why-founders{
-        background-color: var(--why-code-color);
-        position: absolute;
-        bottom:0;
-        left:0;
-        z-index: 1;
-    
-    
-    }
-    
-    .contacts{
-        background-color: var(--fac-color);
-        position: absolute;
-        bottom:0;
-        right:0;
-        z-index: 1;
-    
-    
-    }
 
-    .expanded{
-        position: fixed;
-        z-index: 3;
-        width:100%;
-        height: 100%;
-        padding: 20px 50px;
+        top:0;
+        left:0;
+       
         
+
     }
 
    
+    .why-coding{
 
-    .icon-wrapper{
+        top:0;
+        right:0;
+
+    }
+
+    .why-founders{
+
+        bottom:0;
+        left:0;
+        
+    }
+   
+    .contacts{
+
+        bottom:0;
+        right:0;
+        pointer-events: all;
+
+    }
+
+    .expanded-major{
+        z-index:2;
         height: 100%;
-        width: 100%;
-        overflow: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        text-align: center;
-        padding: 0 20px 0 20px;
-    }
-
-    .wrapper-expanded{
-        height:auto;
-    }
-
-    .expanded-section{
-      
-        align-items: center;
-        justify-content: center;
-        
-    }
-    
-
-    .content{
-        
-        padding:20px 50px;
-
     }
 
     .visible-content{
         display: block;
-       
-
     }
 
-    .invisible{
-        display:none;
+ ul li{
+        margin-left:30px;
     }
+ ul li{
+        margin-left:30px;
+    }
+ ul li{
+        margin-left:30px;
+    }
+ul li{
+        margin-left:30px;
+    }
+
+ .btn-link{
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        pointer-events: all;
+    }
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.icon-wrapper .icon{
+    
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.08);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+
+   
+    
+
+}
 
    
 }
+@media screen and (min-width:1301px) and (min-height:550px){
 
+    
+
+}
+
+@media screen and (max-width:350px){
+    .contacts{
+        flex-direction: column;
+    }
+
+    .contacts .link-btn{
+        margin-top: 20px;
+    }
+      
+} 

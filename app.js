@@ -1,7 +1,7 @@
 const WINDOW_DIMENSION_LIMITS={
 
-    width:499,
-    height:549,
+    width:950,
+    height:610,
     checkIfBiggerThanLimits:function (){
                
         
@@ -20,30 +20,105 @@ const WINDOW_DIMENSION_LIMITS={
   
 }
 
-// const MODAL = {
 
-//     overlay: document.getElementsByClassName("modal-overlay")[0],
 
-//     defineModalDisplay: function (){
+const MODAL = {
+
+    overlay: document.getElementsByClassName("modal-overlay")[0],
+
+    closingIcon: document.getElementsByClassName("closing-icon")[0].children[0],
+
+    hasBeenDisplayedOnce: false,
+
+    defineModalDisplay: function (){
        
-//         WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits() ? this.showModal() : this.hideModal();
-//     },
+        WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits() ? this.showModal() : this.hideModal();
+    },
 
-//     hideModal: () =>{
+    hideModal: function(){
 
-//         console.log("no");
-//     },
+        if(!this.overlay.classList.contains("modal-off")){
 
-//     showModal: () =>{
-//         console.log("yes");
-//     },
+            (document.querySelectorAll(".modal-box")[0].classList.toggle("slide-in"))
 
+            let slideOut=setTimeout(function(){MODAL.overlay.classList.add("modal-off")
+            
+            if(MODAL.overlay.classList.contains("modal-on")){
+                MODAL.overlay.classList.remove("modal-on")
+            }},300)
+            
+
+            
+          
+
+
+        }
+
+
+
+    },
+
+    showModal: function(){
+       
+        
+        if(!this.overlay.classList.contains("modal-on")){
+
+                this.overlay.classList.add("modal-on")
+
+                if(this.overlay.classList.contains("modal-off")){
+                    this.overlay.classList.remove("modal-off")
+                }
+
+                
+                let slideIn = setTimeout(function(){
+                    (document.querySelectorAll(".modal-box")[0].classList.toggle("slide-in"))
+
+                },50)
+
+
+        }
+        
+
+
+    },
+
+    modalDisplayOnResize: function (){
+
+        if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
+
+
+            this.hideModal();
+
+
+        }
+    },
+
+    hideModalOnScreenClick: function(event){
+        console.log(event.target);
+        if(event.target === document.getElementsByClassName("modal-overlay")[0]){
+            
+               
+
+            if(this.overlay.classList.contains("modal-on")){
+                this.hideModal();
+            }
+
+        
+        }
+
+    }
     
-    
 
-// }
+}
 
-// window.addEventListener("resize",  MODAL.defineModalDisplay.bind(MODAL));
+window.addEventListener("load",  MODAL.defineModalDisplay.bind(MODAL));
+window.addEventListener("resize",  MODAL.modalDisplayOnResize.bind(MODAL));
+window.addEventListener("click", MODAL.hideModalOnScreenClick.bind(MODAL));
+
+MODAL.closingIcon.addEventListener("click",function(){
+   MODAL.hideModal();
+});
+
 
 function showHideElements(event){
 
@@ -54,11 +129,10 @@ function showHideElements(event){
             return;
         }
 
-        if(document.querySelectorAll(".expanded").length >0){
+        if(document.querySelectorAll(".expanded-major").length >0){
             
-            manipulateClass(removeClass,"expanded",".expanded")
-            manipulateClass(removeClass,"expanded-section",".expanded-section")
-            manipulateClass(removeClass,"wrapper-expanded",".wrapper-expanded")
+            manipulateClass(removeClass,"expanded-major",".expanded-major")
+          
             hideContent();
 
         }
@@ -77,21 +151,22 @@ function showHideElements(event){
         if(document.querySelectorAll(".tall").length >0){
             console.log("running");
             manipulateClass(removeClass,"tall",".tall")
-        }
+            manipulateClass(addClass,"invisible",".content");
 
-        
-        if(document.querySelectorAll(".expanded").length>0){
-
-            showContent();
-            
-
-            
         }
         else{
-           
-            hideContent()
             showIcons();
+
         }
+
+    
+
+
+        
+
+
+        
+        
     
             
 
@@ -100,7 +175,7 @@ function showHideElements(event){
     }
 }
 
-window.addEventListener("load", showHideElements)
+
 window.addEventListener("resize",showHideElements)
 
 
@@ -110,89 +185,18 @@ let sections= document.querySelectorAll("section");
 
 sections.forEach((section)=> { 
     
-    if(section.classList.contains("intro")){
+    if(section.classList.contains("intro") || section.classList.contains("contacts")){
         return;
     }
     else{
-        section.addEventListener("click", getSectionCoordinates);
-        section.addEventListener("click",expandSection);
+        
+        section.addEventListener("click",expandSectionDesktop);
+        section.addEventListener("click", expandSectionMobile)
     }
             
   
  });
 
-
-
-function getSectionCoordinates(event){
-
-    let coordinates={
-        top:event.target.getBoundingClientRect().top,
-        left:event.target.getBoundingClientRect().left
-    }
-
-    return resizeSection(coordinates,event)
-    
-}
-
-
-function resizeSection(coordinates,event){
-
-    if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
-        return
-    }
-    else{
-
-    let target= event.target;
-    let top= coordinates.top;
-    let left= coordinates.left;
-    target.classList.toggle("expanded");
-
-    showSectionContent(event);
-    }
-
-    
-    
-}
-
-
-function showSectionContent(event){
-    
-
-    event.target.getElementsByClassName("icon")[0].classList.toggle("invisible");
-    event.target.getElementsByClassName("icon-wrapper")[0].classList.toggle("wrapper-expanded");
-    event.target.getElementsByClassName("content")[0].classList.toggle("invisible");
-    event.target.classList.toggle("expanded-section");
-
-
-    console.log(event.target);
-    
-
-
-
-}
-
-
-function expandSection(event){
-
-    if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
-
-
-    console.log(event.target);
-
-    let icon = event.target.getElementsByClassName("icon-wrapper")[0].getElementsByClassName("icon")[0];
-    let content = event.target.getElementsByClassName("content")[0];
-
-
-    icon.classList.toggle("invisible");
-    content.classList.toggle("invisible");
-    event.target.classList.toggle("tall");
-    event.target.scrollIntoView({block:"start", behavior:"smooth"});
-    
-        
-    }
-   
-    
-   }
 
     
 function manipulateClass(addOrRemove,className,element,exception){
@@ -249,7 +253,7 @@ function hideIcons(event){
 
 function hideContent(){
 
-    manipulateClass(addClass,"invisible",".content")
+    manipulateClass(addClass,"invisible",".content", "intro-content")
 
 }
 
@@ -265,4 +269,53 @@ function showContent(){
 
 
 
+function setInvisibleClass(){
 
+
+    if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
+        hideContent();
+        hideIcons();
+    }
+    else{
+        hideContent()
+    }
+
+
+}
+
+document.addEventListener("DOMContentLoaded", setInvisibleClass);
+
+
+function expandSectionMobile(){
+
+
+    if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
+            console.log(event.target);
+
+    let icon = event.target.getElementsByClassName("icon-wrapper")[0].getElementsByClassName("icon")[0];
+    let content = event.target.getElementsByClassName("content")[0];
+
+
+    icon.classList.toggle("invisible");
+    content.classList.toggle("invisible");
+    event.target.classList.toggle("tall");
+    event.target.scrollIntoView({block:"start", behavior:"smooth"});
+    }
+
+
+
+
+}
+
+
+
+function expandSectionDesktop(){
+
+    if(WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
+ 
+        let content = event.target.getElementsByClassName("content")[0];
+        event.target.classList.toggle("expanded-major")
+        content.classList.toggle("invisible");
+    }
+
+}
