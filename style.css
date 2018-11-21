@@ -70,6 +70,9 @@ p{
 
 .modal-text{
     margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center;
+    margin-top:20px;
 }
 .slide-in{
     top:20%;
@@ -126,10 +129,12 @@ section{
     border-bottom: 1px solid rgba(0,0,0,0.03);
     
     
+    
 }
 
 section .content{
     pointer-events: none;
+
     
 }
 
@@ -140,8 +145,13 @@ section p{
     text-align: justify;
     font-size: 20px;
     word-spacing: 3px;
+    line-height: 1.7;
     
 
+}
+
+section .intro-content p{
+    text-align: center;
 }
 
 .invisible{
@@ -179,7 +189,7 @@ section p{
 
     
 .intro{
-    min-height: 100vh;
+    height: 100vh;
     background-color: azure;
     
     
@@ -215,10 +225,7 @@ section p{
 
 }
 
-.icon-wrapper .intro-icon{
-    width:150px;
-    height:150px;
-}
+
 
 .about-icon{
     background-image: url(assets/img/michele-foto-3.png);
@@ -506,11 +513,6 @@ ul li{
 
    }
 }
-@media screen and (min-width:1301px) and (min-height:550px){
-
-    
-
-}
 
 @media screen and (max-width:350px){
     .contacts{
@@ -527,5 +529,21 @@ ul li{
     .gif{
         background-size: contain;
     
+    }
+}
+
+@media screen and (max-height:542px){
+    .icon-wrapper .icon{
+        width:150px;
+        height:150px;
+    }
+
+    section p{
+        font-size: 15px;
+        margin-top: 20px;
+    }
+
+    section .intro-content{
+        text-align: center;
     }
 }
