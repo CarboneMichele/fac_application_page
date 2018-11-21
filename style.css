@@ -123,6 +123,7 @@ section{
     padding:5%;
     z-index: 1;
     transition: all 0.2s ease-in-out;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
     
     
 }
@@ -169,6 +170,7 @@ section p{
 }
 
 .contacts{
+    /* position: relative; */
     background-color: var(--fac-color);
     display: flex;
     flex-direction: row;
@@ -195,8 +197,8 @@ section p{
 
 .icon-wrapper .icon{
     
-    width: 250px;
-    height: 250px;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
     background-color: rgba(0,0,0,0.08);
     background-repeat: no-repeat;
@@ -267,7 +269,8 @@ section p{
     margin:20px auto;
     background-image: url(assets/img/hmym.gif);
     background-position: center;
-    background-size: cover;
+    background-size:cover;
+    background-repeat: no-repeat;
     border-radius:4px;
 
 
@@ -317,6 +320,8 @@ ul li{
     position: relative;
     z-index: 2;
     cursor: pointer;
+    border-radius: 4px;
+
 }
 
 
@@ -343,6 +348,13 @@ ul li{
     visibility: hidden;
 }
 
+
+.back-to-top{
+    position: fixed;
+    bottom:10px;
+    right:30px;
+    color:white;
+}
 @media screen and (min-width:950px) and (min-height:610px){
 
     section{
@@ -479,7 +491,14 @@ ul li{
 
 }
 
-   
+   .back-to-top{
+       visibility: hidden;
+   }
+
+   .gif{
+    background-size: contain;
+
+   }
 }
 @media screen and (min-width:1301px) and (min-height:550px){
 
@@ -497,3 +516,10 @@ ul li{
     }
       
 } 
+
+@media screen and (min-width:750px){
+    .gif{
+        background-size: contain;
+    
+    }
+}
