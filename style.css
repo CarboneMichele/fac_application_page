@@ -179,8 +179,9 @@ section p{
 
     
 .intro{
-    height: 100vh;
+    min-height: 100vh;
     background-color: azure;
+    
     
 }
 
@@ -212,6 +213,11 @@ section p{
    
     
 
+}
+
+.icon-wrapper .intro-icon{
+    width:150px;
+    height:150px;
 }
 
 .about-icon{
