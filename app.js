@@ -319,3 +319,18 @@ function expandSectionDesktop(){
     }
 
 }
+
+
+window.addEventListener("load", centerIntro);
+
+function centerIntro(event){
+
+    if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
+
+        console.log("running");
+
+        document.getElementsByClassName("intro")[0].scrollIntoView({block:"center", behavior:"smooth"})
+    }
+}
+
+

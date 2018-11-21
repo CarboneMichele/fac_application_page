@@ -259,7 +259,7 @@ section .intro-content p{
     background-size: contain;
     background-position: center;
     background-color: none;
- 
+    background-size:120px;
     
 }
 
