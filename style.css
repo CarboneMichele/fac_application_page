@@ -100,7 +100,7 @@ p{
 }
 
 .closing-icon p{
-    font-size: 20px;
+    font-size: 1em;
     font-weight: bold;
     color:white;
 }
@@ -143,7 +143,7 @@ section .content{
 section p{
     margin-top:5%;
     text-align: justify;
-    font-size: 20px;
+    font-size: 1em;
     word-spacing: 3px;
     line-height: 1.7;
     
@@ -202,6 +202,7 @@ section .intro-content p{
     flex-direction: row; 
     flex-wrap: wrap;
     pointer-events: none;
+    
 
     
 }
@@ -225,7 +226,21 @@ section .intro-content p{
 
 }
 
+/* .intro .icon-wrapper{
+  width:100%;
+  max-height:40%;
+}
 
+.intro .intro-icon{
+    width:20%;
+    height: 20%;
+}
+
+.intro .content{
+width:100%;
+max-height:50%;
+margin-top:0;
+} */
 
 .about-icon{
     background-image: url(assets/img/michele-foto-3.png);
@@ -276,6 +291,10 @@ section .intro-content p{
     
 }
 
+.intro-content{
+    margin:0;
+}
+
 .gif{
     width:80%;
     height: 250px;
@@ -323,8 +342,8 @@ ul li{
 
 
 .link-btn{
-    width:100px;
-    height: 100px;
+    width:50px;
+    height: 50px;
     box-sizing: border-box;
     margin-left: 10px;
     border:1px solid lightgray;
@@ -384,6 +403,10 @@ ul li{
         display: none; 
     }
 
+    section p{
+        font-size: 1.2em;
+    }
+
     .about-me{
 
         top:0;
@@ -416,7 +439,7 @@ ul li{
 
     }
 
-    .expanded-major{
+    .expanded-major{https://youtu.be/2L4B1dnoROw
         z-index:2;
         height: 100%;
     }
@@ -512,16 +535,19 @@ ul li{
     background-size: contain;
 
    }
+
+   .link-btn{
+       width:100px;
+       height: 100px;
+   }
+   
 }
 
 @media screen and (max-width:350px){
-    .contacts{
-        flex-direction: column;
-    }
+   .link-btn{
+    margin:0;
 
-    .contacts .link-btn{
-        margin-top: 20px;
-    }
+   }
       
 } 
 
@@ -543,7 +569,7 @@ ul li{
     }
 
     section p{
-        font-size: 15px;
+        font-size: 1em;
         margin-top: 20px;
     }
 
