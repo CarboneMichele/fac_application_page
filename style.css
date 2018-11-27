@@ -189,7 +189,7 @@ section .intro-content p{
 
     
 .intro{
-    height: 100vh;
+    max-height: 100vh;
     background-color: azure;
     
     
