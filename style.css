@@ -2,8 +2,10 @@
 :root{
     --home-color:white;
     --about-me-color:#FF7E6B;
-    --why-code-color:#14DFCC;
-    --fac-color:#08415C;
+    --why-code-color:#A4D4B4;
+    /* --fac-color:#B8E1FF; */
+    --fac-color:#3A7CA5;
+
 
 }
 
@@ -130,6 +132,7 @@ section{
     
     
     
+    
 }
 
 section .content{
@@ -182,8 +185,8 @@ section .intro-content p{
 .contacts{
     /* position: relative; */
     background-color: var(--fac-color);
-    display: flex;
-    flex-direction: row;
+    display: block;
+    /* flex-direction: row; */
     z-index: 1;
 }
 
@@ -344,17 +347,21 @@ ul li{
 
 
 .link-btn{
+    display: inline-block;
     width:50px;
     height: 50px;
     box-sizing: border-box;
     margin-left: 10px;
-    border:1px solid lightgray;
+    border:1px solid rgba(0,0,0,0.08);
     background-size: cover;
     background-position: center;
     position: relative;
     z-index: 2;
     cursor: pointer;
     border-radius: 4px;
+    margin:0 5% 0 5%;
+
+ 
 
 }
 
@@ -395,10 +402,12 @@ ul li{
         position: absolute;
         width: 50%;
         height: 50%;
-        overflow: auto;
         z-index: 1;
         display: block;
         transition: all 0.2s ease;
+        overflow: hidden;
+        
+
     }
 
     section::-webkit-scrollbar { 
@@ -407,6 +416,13 @@ ul li{
 
     section p{
         font-size: 1.2em;
+    }
+
+    section .icon-wrapper{
+       
+        /* top: 50%; */
+        /* transform: translateY(-50%); */
+
     }
 
     .about-me{
@@ -442,8 +458,12 @@ ul li{
     }
 
     .expanded-major{
+        /* display: block; */
         z-index:2;
         height: 100%;
+        overflow: auto;
+     
+
     }
 
     .visible-content{
@@ -541,6 +561,8 @@ ul li{
    .link-btn{
        width:100px;
        height: 100px;
+       margin:10% 5% 0 5%;
+
    }
    
 }
