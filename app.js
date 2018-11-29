@@ -94,7 +94,7 @@ const MODAL = {
     },
 
     hideModalOnScreenClick: function(event){
-        console.log(event.target);
+   
         if(event.target === document.getElementsByClassName("modal-overlay")[0]){
             
                
@@ -149,7 +149,7 @@ function showHideElements(event){
     else{
 
         if(document.querySelectorAll(".tall").length >0){
-            console.log("running");
+            
             manipulateClass(removeClass,"tall",".tall")
             manipulateClass(addClass,"invisible",".content");
 
@@ -290,7 +290,7 @@ function expandSectionMobile(){
 
 
     if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
-            console.log(event.target);
+            
 
     let icon = event.target.getElementsByClassName("icon-wrapper")[0].getElementsByClassName("icon")[0];
     let content = event.target.getElementsByClassName("content")[0];
@@ -327,7 +327,7 @@ function centerIntro(event){
 
     if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
 
-        console.log("running");
+      
 
         document.getElementsByClassName("intro")[0].scrollIntoView({block:"center", behavior:"smooth"})
     }
