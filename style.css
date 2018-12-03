@@ -1,10 +1,10 @@
 /* defining default section colors */
 :root{
-    --home-color:white;
-    --about-me-color:#FF7E6B;
-    --why-code-color:#A4D4B4;
+    --home-color:#F2F3F2;
+    --about-me-color:#85BCC5;
+    --why-code-color:#85D39F;
     /* --fac-color:#B8E1FF; */
-    --fac-color:#3A7CA5;
+    --fac-color: #2A2B2E;
 
 
 }
@@ -13,6 +13,7 @@
 *{
     box-sizing: border-box;
     color:rgba(0,0,0,0.7);
+
 }
 
 html{
@@ -39,6 +40,7 @@ div,a,ul,ol,li,header,footer,aside,section,nav,p,h1,h2,h3,h4,h5,h6{
 
 p{
     letter-spacing: 1.1;
+    /* color: rgba(0,0,0,0.4); */
     
 }
 .modal-overlay{
@@ -75,6 +77,14 @@ p{
     line-height: 1.6;
     text-align: center;
     margin-top:20px;
+}
+
+
+.modal-icon{
+    background-image: url(assets/img/profile-pic.jpeg);
+    background-size: 100%;
+    /* background-position: bottom; */
+
 }
 .slide-in{
     top:20%;
@@ -146,7 +156,7 @@ section .content{
 section p{
     margin-top:5%;
     text-align: justify;
-    font-size: 1em;
+    font-size: 1.2em;
     word-spacing: 3px;
     line-height: 1.7;
     
@@ -195,7 +205,7 @@ section .intro-content p{
     min-height: 100vh;
     max-height: 100vh;
     height: 100vh;
-    background-color: azure;
+    background-color: white;
     
     
 }
@@ -229,6 +239,19 @@ section .intro-content p{
    
     
 
+}
+
+.intro-icon{
+    background-image: url(assets/img/profile-pic.jpeg);
+    background-size: 100%;
+}
+
+.fa .fa-angle-down{
+    font-size: 1.2em;
+    /* height:20px; */
+    color:blue;
+    position: relative;
+   
 }
 
 /* .intro .icon-wrapper{
@@ -326,6 +349,8 @@ margin-top:0;
 
 .bold{
     font-weight: bold;
+    /* color: rgba(0,0,0,0.4); */
+   
 }
 
 .center{
@@ -570,6 +595,7 @@ ul li{
 @media screen and (max-width:350px){
    .link-btn{
     margin:0;
+    margin:0 5%;
 
    }
       
@@ -593,7 +619,7 @@ ul li{
     }
 
     section p{
-        font-size: 1em;
+        font-size: 1.2em;
         margin-top: 20px;
     }
 
@@ -603,3 +629,10 @@ ul li{
 }
 
 
+@media screen and (min-width:500px) and (max-width:949px){
+
+    .link-btn{
+        width:100px;
+        height: 100px;
+    }
+}
