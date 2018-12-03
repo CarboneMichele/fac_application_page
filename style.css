@@ -625,7 +625,12 @@ ul li{
     }
 
     section .intro-content{
+        
         text-align: center;
+    }
+
+    .intro{
+        font-size:0.9em;
     }
 }
 
