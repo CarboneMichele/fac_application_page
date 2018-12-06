@@ -334,3 +334,13 @@ function centerIntro(event){
 }
 
 
+
+
+function calcVH() {
+    let vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    document.getElementById("intro").setAttribute("style", "height:" + vH + "px;");
+  }
+  calcVH();
+  
+  window.addEventListener('onorientationchange', calcVH, true);
+  window.addEventListener('load', calcVH, true);
