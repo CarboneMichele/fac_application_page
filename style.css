@@ -203,10 +203,9 @@ section .intro-content p{
 
     
 .intro{
-    min-height: 100vh;
-    max-height: 100vh;
-    height: 100vh;
+ 
     background-color: white;
+    height: 100vh;
     
     
 }

@@ -344,5 +344,6 @@ function calcVH() {
   
   window.addEventListener('onorientationchange', calcVH, true);
   window.addEventListener('load', calcVH, true);
+  window.addEventListener('resize', calcVH, true);
 
 
