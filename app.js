@@ -115,7 +115,7 @@ window.addEventListener("load",  MODAL.defineModalDisplay.bind(MODAL));
 window.addEventListener("resize",  MODAL.modalDisplayOnResize.bind(MODAL));
 window.addEventListener("click", MODAL.hideModalOnScreenClick.bind(MODAL));
 
-MODAL.closingIcon.addEventListener("click",function(){
+MODAL.closingIcon.addEventListener("click",function(event){
    MODAL.hideModal();
 });
 
@@ -286,7 +286,7 @@ function setInvisibleClass(){
 document.addEventListener("DOMContentLoaded", setInvisibleClass);
 
 
-function expandSectionMobile(){
+function expandSectionMobile(event){
 
 
     if(!WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
@@ -309,7 +309,7 @@ function expandSectionMobile(){
 
 
 
-function expandSectionDesktop(){
+function expandSectionDesktop(event){
 
     if(WINDOW_DIMENSION_LIMITS.checkIfBiggerThanLimits()){
  
